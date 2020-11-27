@@ -8,20 +8,24 @@ const Map = ({ eventData, center, zoom }) => {
   const [locationInfo, setLocationInfo] = useState(null)
 
   const markers = eventData.map(event => {
-    if (event.categories[0].id === 8){
+    
+    const type = event.categories[0].id
+    const valid = type === 8 || type === 10 || type === 15 || type === 12
+
+    const coords = event.geometries[event.geometries.length - 1].coordinates
+    if (coords.length === 2 && !event.closed)
       return <LocationMarker 
-        key={event.id}
-        lat={event.geometries[0].coordinates[1]} 
-        lng={event.geometries[0].coordinates[0]}  
-        onClick={() => {
-          setLocationInfo({ 
-            id: event.id, 
-            title: event.title
-          })
-        }}
+      key={event.id}
+      id={type}
+      lat={coords[1]} 
+      lng={coords[0]}  
+      onClick={() => {
+        setLocationInfo({ 
+          id: event.id, 
+          title: event.title
+        })
+      }}
       />
-    }
-    return null;
   })
 
 

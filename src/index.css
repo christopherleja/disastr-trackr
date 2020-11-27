@@ -28,9 +28,30 @@ body {
   position: relative;
 }
 
-.location-icon {
+.location-marker {
   font-size: 2rem;
   color: rgb(238, 36, 36);
+}
+
+.fire-icon {
+  font-size: 2rem;
+  color: rgb(238, 36, 36);
+  z-index: 1;
+}
+
+.volcano-icon{
+  font-size: 2rem;
+  color: rgb(116, 11, 11);
+}
+
+.iceberg-icon {
+  font-size: 2rem;
+  color: rgb(160, 168, 245);
+}
+
+.storm-icon {
+  font-size: 2rem;
+  color: rgb(35, 41, 104);
 }
 
 .loading-container {
